@@ -1,11 +1,20 @@
 # AED Rescue Drone Project for Android
 
-- [How to use](#A)
-- [MAVLink Command Usage](#B)
-- [DEMO Video](#C)
+- [Build ArduPilot SITL](#A)
+- [How to use](#B)
+- [MAVLink Command Usage](#C)
+- [DEMO Video](#D)
+- [Reference](#E)
 
+## *<a id="A">Build ArduPilot SITL</a>*
+1. ***If you use Linux pls skip this step***, Install WSL (Win10 Subsystem).
+2. Follow https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux to set up the SITL environment.
+3. Follow https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md to build the SITL source code. ***I use ./waf configure --board sitl***
+4. ***If you use Linux pls skip this step***, Download https://sourceforge.net/projects/vcxsrv/ to visualize the Linux windows.
+5. Input the command ***<sim_vehicle.py -v ArduCopter --console>*** on WSL terminal to run SITL. ***Input command <sim_vehicle.py -h> to see how to use the exist parameters.***
+6. Open ***Mission Planner*** or ***QGroundControl*** to control and monitor the virtual drone.
 
-## *<a id="A">How to use</a>*
+## *<a id="B">How to use</a>*
 
 1. Select ***"USB"*** option and ***connect to Pixhawk*** via USB or select ***"TCP"*** and ***connect to SITL*** via networks. ***If successful, "Pixhawk Status"*** will be displayed ***"Connected..."***.
 2. The ***"RABBITMQ" button*** is used to connecnt to the pre-built RabbitMQ broker. If successful, ***"RabbitMQ Status"*** will be displayed ***"Connected..."***.
@@ -31,7 +40,7 @@ factory.setUsername("aiotlab");
 factory.setPassword("aiotlab208");
 ```
 
-## *<a id="B">MAVLink Command Usage</a>*
+## *<a id="C">MAVLink Command Usage</a>*
 ### :memo: Control Drone
 
 ### ★ Arm & Disarm
@@ -267,7 +276,12 @@ else if(message.getPayload() instanceof GlobalPositionInt){
 | system_status | System status flag                                 |
 | is_armed      | Whether the drone is armed (0 : Disarmed 1 : Armed)|
 
-## *<a id="C">DEMO video</a>*
+## *<a id="D">DEMO video</a>*
 
 https://youtu.be/Q5ktT4_TEg4
+
+## *<a id="E">Reference</a>*
+
+1. https://github.com/dronefleet/mavlink
+2. https://github.com/felHR85/UsbSerial
 

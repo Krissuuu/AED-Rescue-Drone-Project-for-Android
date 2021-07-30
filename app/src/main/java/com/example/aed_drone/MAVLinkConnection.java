@@ -35,7 +35,7 @@ public class MAVLinkConnection {
                 try {
                     // TCP connection
                     if(connect_num == 0) {
-                        socket = new Socket("192.168.2.230", 5762);
+                        socket = new Socket("192.168.2.118", 5762);
 //                        socket = new Socket("192.168.4.1", 6789);
                         connection = MavlinkConnection.create(socket.getInputStream(), socket.getOutputStream());
                     }
